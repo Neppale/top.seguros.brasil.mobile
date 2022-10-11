@@ -6,4 +6,32 @@
     android:layout_height="match_parent"
     tools:context=".FormCadastro">
 
+    <View
+        android:id="@+id/barTop"
+        style="@style/BarTopComponents"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+    />
+
+    <TextView
+        android:id="@+id/text_top_entrar"
+        style="@style/TextBarTop"
+        app:layout_constraintStart_toEndOf="@id/barTop"
+        app:layout_constraintTop_toTopOf="@id/barTop"
+        app:layout_constraintEnd_toEndOf="@id/barTop"
+        android:text="Entrar"
+        />
+
+    <ImageView
+        android:id="@+id/arrow_left"
+        app:layout_constraintStart_toStartOf="@id/barTop"
+        app:layout_constraintTop_toTopOf="@id/text_top_entrar"
+        style="@style/ArrowLeft"
+        />
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        />
 </androidx.constraintlayout.widget.ConstraintLayout>

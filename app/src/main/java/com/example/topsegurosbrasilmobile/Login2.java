@@ -11,7 +11,6 @@ public class Login2 extends AppCompatActivity {
 
     private Button me_cadastrar;
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
