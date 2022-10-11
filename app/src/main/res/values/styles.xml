@@ -23,4 +23,11 @@
         <item name="android:background">@drawable/bar_top_components</item>
     </style>
 
+    <style name="CaraLendo">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">250dp</item>
+        <item name="android:layout_marginTop">150dp</item>
+        <item name="android:src">@drawable/pessoa_lendo</item>
+    </style>
+
 </resources>
