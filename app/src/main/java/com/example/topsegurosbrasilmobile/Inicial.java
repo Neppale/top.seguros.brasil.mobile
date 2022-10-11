@@ -5,30 +5,31 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.ImageView;
+import android.widget.Button;
 
-public class FormCadastro extends AppCompatActivity {
+public class Inicial extends AppCompatActivity {
 
-    private ImageView voltar;
+    private Button me_cadastrar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_form_cadastro);
+        setContentView(R.layout.activity_inicial);
 
         getSupportActionBar().hide();
         IniciarComponentes();
 
-        voltar.setOnClickListener(new View.OnClickListener() {
+        me_cadastrar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(FormCadastro.this, Login2.class);
+
+                Intent intent = new Intent(Inicial.this, FormLogin.class);
                 startActivity(intent);
             }
         });
     }
 
     private void IniciarComponentes(){
-        voltar = findViewById(R.id.arrow_left);
+        me_cadastrar = findViewById(R.id.me_cadastrar);
     }
 }

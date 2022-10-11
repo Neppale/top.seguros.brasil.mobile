@@ -13,7 +13,7 @@
         android:theme="@style/Theme.Topsegurosbrasilmobile"
         tools:targetApi="31">
         <activity
-            android:name=".FormCadastro"
+            android:name=".FormLogin"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
@@ -27,7 +27,7 @@
                 android:value="" />
         </activity>
         <activity
-            android:name=".Login2"
+            android:name=".Inicial"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
