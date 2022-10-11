@@ -18,31 +18,26 @@
         app:layout_constraintTop_toTopOf="parent"
         />
 
-    <Button
-        android:id="@+id/me_cadastrar"
-        android:layout_width="331dp"
-        android:layout_height="66dp"
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btn_me_cadastrar"
+        style="@style/BtnComum"
         android:layout_marginTop="540dp"
+
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        android:backgroundTint="#FFFFFF"
-        android:text="ME CADASTRAR"
-        android:textColor="#F45446"
-        android:textSize="18sp"
+        android:text="@string/me_cadastrar"
         />
 
-    <Button
-        android:id="@+id/entrar"
-        android:layout_width="331dp"
-        android:layout_height="66dp"
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btn_entrar"
+        style="@style/BtnPrimary"
         android:layout_marginTop="610dp"
+
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        android:backgroundTint="#F45446"
-        android:text="ENTRAR"
-        android:textSize="18sp"/>
+        android:text="@string/entrar"
     />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

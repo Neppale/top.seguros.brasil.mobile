@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">top.seguros.brasil.mobile</string>
+    <string name="entrar">ENTRAR</string>
+    <string name="email">Email</string>
+    <string name="senha">Senha</string>
+    <string name="me_cadastrar">ME CADASTRAR</string>
 </resources>

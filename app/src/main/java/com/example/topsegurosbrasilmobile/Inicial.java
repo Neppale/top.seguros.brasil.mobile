@@ -9,7 +9,7 @@ import android.widget.Button;
 
 public class Inicial extends AppCompatActivity {
 
-    private Button me_cadastrar;
+    private Button entrar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -19,7 +19,7 @@ public class Inicial extends AppCompatActivity {
         getSupportActionBar().hide();
         IniciarComponentes();
 
-        me_cadastrar.setOnClickListener(new View.OnClickListener() {
+        entrar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
@@ -30,6 +30,6 @@ public class Inicial extends AppCompatActivity {
     }
 
     private void IniciarComponentes(){
-        me_cadastrar = findViewById(R.id.me_cadastrar);
+        entrar = findViewById(R.id.btn_entrar);
     }
 }
