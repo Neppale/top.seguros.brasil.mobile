@@ -1,23 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<androidx.core.widget.NestedScrollView
+<androidx.core.widget.NestedScrollView xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fillViewport="true"
     xmlns:android="http://schemas.android.com/apk/res/android">
     <!--
     androidx.core.widget.NestedScrollView
-
     permite fazer o celular deitar
-
      -->
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
+
+<androidx.constraintlayout.widget.ConstraintLayout
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/white"
-    tools:context=".FormLogin">
+    tools:context=".FormCadastro">
 
     <View
         android:id="@+id/barTop"
@@ -25,7 +23,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-    />
+        />
 
     <TextView
         android:id="@+id/text_top_entrar"
@@ -33,7 +31,7 @@
         app:layout_constraintStart_toEndOf="@id/barTop"
         app:layout_constraintTop_toTopOf="@id/barTop"
         app:layout_constraintEnd_toEndOf="@id/barTop"
-        android:text="Entrar"
+        android:text="Sobre você"
         />
 
     <ImageView
@@ -43,51 +41,62 @@
         app:layout_constraintTop_toTopOf="@id/text_top_entrar"
         />
 
-    <ImageView
-        android:id="@+id/cara_lendo"
-        style="@style/CaraLendo"
-        app:layout_constraintTop_toTopOf="parent"
+    <TextView
+        android:id="@+id/frase_top"
+        style="@style/frase_top"
+        android:text="Queremos saber mais \nsobre você"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        />
+        app:layout_constraintTop_toBottomOf="@id/barTop" />
 
     <View
         android:id="@+id/containerComponents"
         style="@style/ContainerComponents"
-        app:layout_constraintTop_toBottomOf="@id/cara_lendo"
-        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/frase_top"
         />
 
-
     <EditText
-        android:id="@+id/login_text_email"
+        android:id="@+id/form_text_nome"
         style="@style/EditText"
-        android:hint="@string/email"
-        android:inputType="textEmailAddress"
+        android:layout_marginTop="70dp"
+        android:hint="Nome"
+        android:inputType="text"
         app:layout_constraintStart_toStartOf="@id/containerComponents"
         app:layout_constraintEnd_toEndOf="@id/containerComponents"
         app:layout_constraintTop_toTopOf="@id/containerComponents"
         />
 
     <EditText
-        android:id="@+id/login_text_senha"
+        android:id="@+id/form_text_data_nasci"
         style="@style/EditText"
-        android:hint="@string/senha"
-        android:inputType="textWebPassword"
+        android:hint="Data de nascimento"
+        android:inputType="date"
         app:layout_constraintStart_toStartOf="@id/containerComponents"
         app:layout_constraintEnd_toEndOf="@id/containerComponents"
-        app:layout_constraintTop_toBottomOf="@id/login_text_email"
+        app:layout_constraintTop_toBottomOf="@id/form_text_nome"
         />
 
     <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/btn_entrar_form"
+        android:id="@+id/btn_continuar_form"
         style="@style/BtnPrimary"
+        android:text="Continuar"
+        android:layout_marginBottom="20dp"
         app:layout_constraintStart_toStartOf="@id/containerComponents"
         app:layout_constraintEnd_toEndOf="@id/containerComponents"
-        app:layout_constraintTop_toBottomOf="@id/login_text_senha"
-        android:text="@string/entrar"
-    />
+        app:layout_constraintBottom_toTopOf="@id/btn_cancela_form"
+        />
 
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btn_cancela_form"
+        style="@style/BtnComum"
+        android:text="Cancelar cadastro"
+        android:layout_marginBottom="60dp"
+        app:layout_constraintStart_toStartOf="@id/containerComponents"
+        app:layout_constraintEnd_toEndOf="@id/containerComponents"
+        app:layout_constraintBottom_toBottomOf="parent"
+        />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.core.widget.NestedScrollView>

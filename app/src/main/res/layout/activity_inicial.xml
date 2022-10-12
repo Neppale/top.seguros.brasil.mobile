@@ -1,10 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
+
+<androidx.core.widget.NestedScrollView
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+    <!--
+    androidx.core.widget.NestedScrollView
+
+    permite fazer o celular deitar
+
+     -->
+
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#F45446"
+    android:background="@color/primary"
     tools:context=".Inicial">
 
     <ImageView
@@ -21,23 +34,22 @@
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/btn_me_cadastrar"
         style="@style/BtnComum"
-        android:layout_marginTop="540dp"
-
+        android:layout_marginBottom="20dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/btn_entrar"
         android:text="@string/me_cadastrar"
         />
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/btn_entrar"
         style="@style/BtnPrimary"
-        android:layout_marginTop="610dp"
-
+        android:layout_marginBottom="60dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
         android:text="@string/entrar"
     />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.core.widget.NestedScrollView>

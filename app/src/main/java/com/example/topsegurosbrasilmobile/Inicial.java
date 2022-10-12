@@ -10,6 +10,7 @@ import android.widget.Button;
 public class Inicial extends AppCompatActivity {
 
     private Button entrar;
+    private Button me_cadastrar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,14 +23,23 @@ public class Inicial extends AppCompatActivity {
         entrar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
                 Intent intent = new Intent(Inicial.this, FormLogin.class);
+                startActivity(intent);
+            }
+        });
+
+        me_cadastrar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(Inicial.this, FormCadastro.class);
                 startActivity(intent);
             }
         });
     }
 
     private void IniciarComponentes(){
+
         entrar = findViewById(R.id.btn_entrar);
+        me_cadastrar = findViewById(R.id.btn_me_cadastrar);
     }
 }
