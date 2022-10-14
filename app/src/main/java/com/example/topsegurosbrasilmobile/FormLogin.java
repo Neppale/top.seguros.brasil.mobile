@@ -15,12 +15,10 @@ import android.widget.EditText;
 import android.widget.ImageView;
 
 import com.android.volley.AuthFailureError;
-import com.android.volley.NetworkResponse;
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
-import com.android.volley.toolbox.HttpHeaderParser;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 
@@ -30,16 +28,16 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.io.UnsupportedEncodingException;
-import java.util.Map;
 
 public class FormLogin extends AppCompatActivity {
 
     private ImageView btn_voltar;
     private Button btn_entrar;
     private EditText Edit_email, Edit_senha;
+
     String[] mensagens = {"Preencha todos os campos", "Cadastro realizado com sucesso"};
     public String URL_BASE = "https://tsb-api-policy-engine.herokuapp.com";
-    public User user;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -68,8 +66,8 @@ public class FormLogin extends AppCompatActivity {
                 String email = Edit_email.getText().toString().trim();
                 String senha = Edit_senha.getText().toString().trim();
 
-                //email = "llll@deee.com";
-                //senha = "Senha123-";
+                email = "llll@deee.com";
+                senha = "Senha123-";
 
                 if(ActivityCompat.checkSelfPermission(FormLogin.this, Manifest.permission.INTERNET) != PackageManager.PERMISSION_GRANTED){
                     ActivityCompat.requestPermissions(FormLogin.this, new String[]{Manifest.permission.INTERNET}, 1);
@@ -115,7 +113,10 @@ public class FormLogin extends AppCompatActivity {
                             jResponse = new JSONObject(response);
                             //user.token = jResponse.getString("token");
                             token = jResponse.getJSONObject("user").getString("nome_completo");
+
                             Intent intent = new Intent(FormLogin.this, Logado.class);
+                            intent.putExtra("nome", token);
+
                             startActivity(intent);
                         } catch (JSONException e) {
                             e.printStackTrace();

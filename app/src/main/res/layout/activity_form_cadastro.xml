@@ -43,7 +43,7 @@
 
     <TextView
         android:id="@+id/frase_top"
-        style="@style/frase_top"
+        style="@style/fraseTop"
         android:text="Queremos saber mais \nsobre você"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

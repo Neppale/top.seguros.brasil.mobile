@@ -11,18 +11,36 @@
     permite fazer o celular deitar
      -->
 
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
+<androidx.constraintlayout.widget.ConstraintLayout
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/white"
     tools:context=".Logado">
 
+    <View
+        android:id="@+id/user_nome_component"
+        style="@style/UserIconComponent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        />
+
     <ImageView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:src="@drawable/ic_avatar"/>
+        android:id="@+id/user_icone"
+        style="@style/UserIcone"
+        app:layout_constraintStart_toStartOf="@id/user_nome_component"
+        app:layout_constraintTop_toTopOf="@id/user_nome_component"
+        app:layout_constraintEnd_toStartOf="@id/text_nome_user"
+        />
+
+    <TextView
+        android:id="@+id/text_nome_user"
+        style="@style/TextNomeUser"
+        android:text="Olá, Paulo!"
+        app:layout_constraintStart_toEndOf="@id/user_icone"
+        app:layout_constraintTop_toTopOf="@id/user_nome_component"
+        />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.core.widget.NestedScrollView>
