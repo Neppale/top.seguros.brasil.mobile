@@ -6,4 +6,5 @@ public class User {
     public String email;
     public String tipo;
     public Boolean status;
+    public String token;
 }

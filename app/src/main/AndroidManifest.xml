@@ -15,6 +15,13 @@
         android:theme="@style/Theme.Topsegurosbrasilmobile"
         tools:targetApi="31">
         <activity
+            android:name=".Logado"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
             android:name=".FormCadastro"
             android:exported="false">
             <meta-data

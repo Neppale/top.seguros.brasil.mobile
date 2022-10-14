@@ -39,7 +39,7 @@ public class FormLogin extends AppCompatActivity {
     private EditText Edit_email, Edit_senha;
     String[] mensagens = {"Preencha todos os campos", "Cadastro realizado com sucesso"};
     public String URL_BASE = "https://tsb-api-policy-engine.herokuapp.com";
-
+    public User user;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -51,6 +51,8 @@ public class FormLogin extends AppCompatActivity {
 
         getSupportActionBar().hide();
         IniciarComponentes();
+
+
 
         btn_voltar.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -65,6 +67,9 @@ public class FormLogin extends AppCompatActivity {
             public void onClick(View view) {
                 String email = Edit_email.getText().toString().trim();
                 String senha = Edit_senha.getText().toString().trim();
+
+                //email = "llll@deee.com";
+                //senha = "Senha123-";
 
                 if(ActivityCompat.checkSelfPermission(FormLogin.this, Manifest.permission.INTERNET) != PackageManager.PERMISSION_GRANTED){
                     ActivityCompat.requestPermissions(FormLogin.this, new String[]{Manifest.permission.INTERNET}, 1);
@@ -104,7 +109,19 @@ public class FormLogin extends AppCompatActivity {
                 new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {
-                        btn_entrar.setText(response);
+                        JSONObject jResponse = null;
+                        String token = "";
+                        try {
+                            jResponse = new JSONObject(response);
+                            //user.token = jResponse.getString("token");
+                            token = jResponse.getJSONObject("user").getString("nome_completo");
+                            Intent intent = new Intent(FormLogin.this, Logado.class);
+                            startActivity(intent);
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                        }
+
+
                     }
                 }, new Response.ErrorListener() {
             @Override
@@ -159,29 +176,6 @@ public class FormLogin extends AppCompatActivity {
 
         queue.add(stringRequest);
         return "";
-    }
-
-    /* //verifica se tem as permissões de uso da internet
-    @Override
-    public void onRequestPermissionsResult(int requestCode, String permission[], int[] grantResults) {
-        super.onRequestPermissionsResult(requestCode, permission, grantResults);
-        switch (requestCode) {
-            case 1: {
-                if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_DENIED) {
-                    carga();
-                } else {
-                    Toast.makeText(FormLogin.this, "negadoooo deu ruim", Toast.LENGTH_LONG);
-                }
-                return;
-            }
-        }
-    }
-    */
-    private void FazerLogin(){
-        String email = Edit_email.getText().toString();
-        String senha = Edit_senha.getText().toString();
-
-
     }
 
     private void IniciarComponentes(){
