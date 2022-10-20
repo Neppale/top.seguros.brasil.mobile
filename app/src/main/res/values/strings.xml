@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">top.seguros.brasil.mobile</string>
+    <string name="app_name">TSB</string>
     <string name="entrar">ENTRAR</string>
     <string name="email">Email</string>
     <string name="senha">Senha</string>

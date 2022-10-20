@@ -50,8 +50,6 @@ public class FormLogin extends AppCompatActivity {
         getSupportActionBar().hide();
         IniciarComponentes();
 
-
-
         btn_voltar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -66,9 +64,6 @@ public class FormLogin extends AppCompatActivity {
                 String email = Edit_email.getText().toString().trim();
                 String senha = Edit_senha.getText().toString().trim();
 
-                email = "llll@deee.com";
-                senha = "Senha123-";
-
                 if(ActivityCompat.checkSelfPermission(FormLogin.this, Manifest.permission.INTERNET) != PackageManager.PERMISSION_GRANTED){
                     ActivityCompat.requestPermissions(FormLogin.this, new String[]{Manifest.permission.INTERNET}, 1);
                 } else {
@@ -82,7 +77,7 @@ public class FormLogin extends AppCompatActivity {
 
                     } else {
                         try {
-                            postLogin("/usuario/login", email, senha, view);
+                            postLogin("/cliente/login", email, senha, view);
                         } catch (JSONException e) {
                             e.printStackTrace();
                         }
@@ -107,22 +102,9 @@ public class FormLogin extends AppCompatActivity {
                 new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {
-                        JSONObject jResponse = null;
-                        String token = "";
-                        try {
-                            jResponse = new JSONObject(response);
-                            //user.token = jResponse.getString("token");
-                            token = jResponse.getJSONObject("user").getString("nome_completo");
-
-                            Intent intent = new Intent(FormLogin.this, Logado.class);
-                            intent.putExtra("nome", token);
-
-                            startActivity(intent);
-                        } catch (JSONException e) {
-                            e.printStackTrace();
-                        }
-
-
+                        Intent intent = new Intent(FormLogin.this, Logado.class);
+                        intent.putExtra("responseLogin", response);
+                        startActivity(intent);
                     }
                 }, new Response.ErrorListener() {
             @Override

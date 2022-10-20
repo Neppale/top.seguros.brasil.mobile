@@ -41,6 +41,16 @@
         app:layout_constraintTop_toTopOf="@id/user_nome_component"
         />
 
+    <TextView
+        android:id="@+id/text_cobertura"
+        style="@style/TextCobertura"
+        android:text="Suas coberturas"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/text_nome_user"
+        />
+
+
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.core.widget.NestedScrollView>
