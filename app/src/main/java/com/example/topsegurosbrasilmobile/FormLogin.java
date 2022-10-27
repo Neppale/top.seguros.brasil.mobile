@@ -28,6 +28,8 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.io.UnsupportedEncodingException;
+import java.util.HashMap;
+import java.util.Map;
 
 public class FormLogin extends AppCompatActivity {
 
@@ -132,10 +134,7 @@ public class FormLogin extends AppCompatActivity {
                 }
             }
         };
-
-
         queue.add(stringRequest);
-
         return "";
     }
 
@@ -155,7 +154,18 @@ public class FormLogin extends AppCompatActivity {
             public void onErrorResponse(VolleyError error) {
                 btn_entrar.setText("deu ruim");
             }
-        });
+        }){
+            @Override
+            public Map<String, String> getHeaders() throws AuthFailureError {
+                Map<String, String> headers = new HashMap<>();
+                // Basic Authentication
+                //String auth = "Basic " + Base64.encodeToString(CONSUMER_KEY_AND_SECRET.getBytes(), Base64.NO_WRAP);
+
+                headers.put("Authorization", "Bearer " + "accesstoken");
+                return headers;
+            }
+        }
+                ;
 
         queue.add(stringRequest);
         return "";
@@ -167,6 +177,4 @@ public class FormLogin extends AppCompatActivity {
         Edit_email = findViewById(R.id.login_text_email);
         Edit_senha = findViewById(R.id.login_text_senha);
     }
-
-
 }

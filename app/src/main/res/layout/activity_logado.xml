@@ -50,7 +50,35 @@
         />
 
 
+    <ListView
+        android:id="@+id/lista_coberturas"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/text_cobertura"
+        android:layout_width="match_parent"
+        android:layout_height="180dp"
+        android:background="@color/secondary"
+        android:layout_margin="18dp"
+        />
 
+    <ListView
+        android:id="@+id/lista_coberturas2"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/lista_coberturas"
+        android:layout_width="match_parent"
+        android:layout_height="180dp"
+        android:background="@color/secondary"
+        android:layout_margin="18dp"
+        />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/solicitar_seguro"
+        style="@style/BtnSolicitar"
+        android:layout_marginBottom="60dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:text="@string/solicitar_seguro"
+        />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.core.widget.NestedScrollView>
