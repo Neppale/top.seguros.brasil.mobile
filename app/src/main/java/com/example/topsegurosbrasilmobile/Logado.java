@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Context;
 import android.os.Bundle;
+import android.view.Window;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -15,9 +16,11 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.lang.reflect.Method;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -25,11 +28,15 @@ public class Logado extends AppCompatActivity {
 
     private TextView nomeUser;
     private JSONObject responseLogin;
+    private JSONObject responseApolices;
     private User cliente = new User();
     private ListView listaCoberturas;
-    private Apolice apolice = new Apolice();
+    private Apolice[] apolices = new Apolice[5];
     private Cobertura cobertura = new Cobertura();
     private ResponseText respText = new ResponseText();
+    private TextView textoCoberturaNome;
+    private TextView textoCoberturaDescricao;
+    private TextView textoCoberturaValor;
 
     public String URL_BASE = "https://tsb-api-policy-engine.herokuapp.com";
 
@@ -42,13 +49,15 @@ public class Logado extends AppCompatActivity {
         IniciarComponentes();
         SetText();
 
-
-        nomeUser.setText(cliente.getNome_completo()+"!"+respText.getResp());
+        nomeUser.setText(cliente.getNome_completo()+"!");
     }
 
     private void IniciarComponentes(){
         listaCoberturas = findViewById(R.id.lista_coberturas);
         nomeUser = findViewById(R.id.text_nome_user);
+        textoCoberturaNome = findViewById(R.id.text_cobertura_nome);
+        textoCoberturaDescricao = findViewById(R.id.text_cobertura_descricao);
+        textoCoberturaValor = findViewById(R.id.text_cobertura_valor);
     }
 
     private void SetText(){
@@ -64,6 +73,7 @@ public class Logado extends AppCompatActivity {
                 int id_user = cliente.getId_usuario();
 
                 Get(URL_BASE, "/apolice/cliente/"+id_user, cliente.getToken(),Logado.this);
+
             } catch (JSONException e) {
                 e.printStackTrace();
             }
@@ -79,12 +89,7 @@ public class Logado extends AppCompatActivity {
                 new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {
-                        respText.setResp(response);
-                        try{
-                            JSONObject a = new JSONObject(response);
-                        } catch (JSONException e) {
-                            e.printStackTrace();
-                        }
+                        trocaTexto(response);
                     }
                 }, new Response.ErrorListener() {
             @Override
@@ -99,13 +104,26 @@ public class Logado extends AppCompatActivity {
                 return headers;
             }
         };
-
         queue.add(stringRequest);
     }
 
-    private class ResponseText{
-        public String resp;
+    public void trocaTexto(String response){
+        try {
+            responseApolices = new JSONObject(response);
 
+            String nome = responseApolices.getJSONArray("data").getJSONObject(0).getJSONObject("cobertura").getString("nome");
+            String descricao = responseApolices.getJSONArray("data").getJSONObject(0).getJSONObject("cobertura").getString("descricao");
+
+            textoCoberturaNome.setText(nome);
+            textoCoberturaDescricao.setText(descricao);
+            textoCoberturaValor.setText("R$ " + responseApolices.getJSONArray("data").getJSONObject(0).getJSONObject("cobertura").getString("valor"));
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+    }
+
+    private class ResponseText{
+        private String resp;
         public String getResp(){
             return resp;
         }

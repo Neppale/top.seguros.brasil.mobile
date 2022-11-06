@@ -52,22 +52,54 @@
 
     <ListView
         android:id="@+id/lista_coberturas"
+        android:layout_width="match_parent"
+        android:layout_height="180dp"
+        android:layout_margin="18dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:background="@color/secondary"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/text_cobertura" />
+
+    <TextView
+        android:id="@+id/text_cobertura_nome"
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:text="grato"
+        android:textSize="22dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/text_cobertura"
-        android:layout_width="match_parent"
-        android:layout_height="180dp"
-        android:background="@color/secondary"
-        android:layout_margin="18dp"
+        android:layout_marginLeft="25dp"
+        android:layout_marginTop="18dp"
+        android:layout_marginRight="18dp"
+        android:textColor="@color/white"
         />
 
-    <ListView
-        android:id="@+id/lista_coberturas2"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/lista_coberturas"
+    <TextView
+        android:id="@+id/text_cobertura_descricao"
         android:layout_width="match_parent"
-        android:layout_height="180dp"
-        android:background="@color/secondary"
-        android:layout_margin="18dp"
+        android:layout_height="50dp"
+        android:text="blaa 78569 e blaaa de cinco, felicdade e cabelosss eita 24h ter por"
+        android:textSize="18dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/text_cobertura_nome"
+        android:layout_marginLeft="25dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginRight="18dp"
+        android:textColor="@color/white"
+        />
+
+    <TextView
+        android:id="@+id/text_cobertura_valor"
+        android:layout_width="match_parent"
+        android:layout_height="22dp"
+        android:text="R$ 42.42"
+        android:textSize="18dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/text_cobertura_descricao"
+        android:layout_marginLeft="25dp"
+        android:layout_marginRight="18dp"
+        android:textColor="@color/white"
         />
 
     <androidx.appcompat.widget.AppCompatButton

@@ -89,7 +89,7 @@ public class FormLogin extends AppCompatActivity {
         });
     }
 
-    public String postLogin(String urlPath, String email, String senha, View view) throws JSONException {
+    public void postLogin(String urlPath, String email, String senha, View view) throws JSONException {
 
         RequestQueue queue = Volley.newRequestQueue(FormLogin.this);
         String url = URL_BASE + urlPath;
@@ -135,7 +135,6 @@ public class FormLogin extends AppCompatActivity {
             }
         };
         queue.add(stringRequest);
-        return "";
     }
 
     public String getPadrao(String urlPath){
