@@ -111,6 +111,13 @@ public class Logado extends AppCompatActivity {
         try {
             responseApolices = new JSONObject(response);
 
+            if(responseApolices.getJSONArray("data").length() == 0){
+                textoCoberturaNome.setText("");
+                textoCoberturaDescricao.setText("Cliente ainda não possui uma apolice");
+                textoCoberturaValor.setText("");
+                return;
+            }
+
             String nome = responseApolices.getJSONArray("data").getJSONObject(0).getJSONObject("cobertura").getString("nome");
             String descricao = responseApolices.getJSONArray("data").getJSONObject(0).getJSONObject("cobertura").getString("descricao");
 
