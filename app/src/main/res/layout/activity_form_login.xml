@@ -73,7 +73,7 @@
         android:id="@+id/login_text_senha"
         style="@style/EditText"
         android:hint="@string/senha"
-        android:inputType="textWebPassword"
+        android:inputType="textVisiblePassword"
         app:layout_constraintStart_toStartOf="@id/containerComponents"
         app:layout_constraintEnd_toEndOf="@id/containerComponents"
         app:layout_constraintTop_toBottomOf="@id/login_text_email"
