@@ -104,7 +104,7 @@ public class FormCadastro extends AppCompatActivity {
                             campo2.setText("");
                             btn_continuar.setText("CADASTRAR");
                         }
-                    } else if( contador >= 2){
+                    } else if( contador == 2){
                         if(!Patterns.EMAIL_ADDRESS.matcher(campo01).matches()){
                             mensagens("O email é invalido", view);
                         } else if (!campo02.matches("^(?=.*\\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[$*&@#])[0-9a-zA-Z$*&?!@_#+-]{8,}")){
@@ -118,16 +118,6 @@ public class FormCadastro extends AppCompatActivity {
                             } catch (JSONException e) {
                                 e.printStackTrace();
                             }
-                            /*
-                            btn_continuar.setText("");
-                            btn_continuar.setBackgroundColor(255);
-                            btn_cancela.setBackgroundColor(255);
-                            btn_voltar.setVisibility(View.GONE);
-                            campo1.setVisibility(View.GONE); //View.VISIBLE
-                            campo2.setVisibility(View.GONE); //View.VISIBLE
-                            textoCima.setText("Cadastrado com sucesso");
-
-                             */
                         }
                     } else {
                         //btn_continuar.setText("CADASTRAR");
@@ -161,6 +151,8 @@ public class FormCadastro extends AppCompatActivity {
         RequestQueue queue = Volley.newRequestQueue(FormCadastro.this);
         String url = URL_BASE + urlPath;
 
+        String telefone = "(55) 9" + dados.getCnh().substring(4,8) +"-"+dados.getCnh().substring(0,4);
+
         JSONObject jsonBody = new JSONObject();
 
         jsonBody.put("email", dados.getEmail());
@@ -169,9 +161,8 @@ public class FormCadastro extends AppCompatActivity {
         jsonBody.put("cpf", dados.getCpf());
         jsonBody.put("cnh", dados.getCnh());
         jsonBody.put("cep", "79300-090");
-
         jsonBody.put("data_nascimento", "2003-01-01");
-        jsonBody.put("telefone1", "(55) 95578-5554");
+        jsonBody.put("telefone1", telefone);
         jsonBody.put("telefone2", "");
 
 
@@ -181,7 +172,13 @@ public class FormCadastro extends AppCompatActivity {
                 new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {
+                        btn_cancela.setText("CONTINUAR");
 
+                        btn_continuar.setVisibility(View.GONE);
+                        btn_voltar.setVisibility(View.GONE);
+                        campo1.setVisibility(View.GONE); //View.VISIBLE
+                        campo2.setVisibility(View.GONE); //View.VISIBLE
+                        textoCima.setText("Cadastrado com sucesso");
                     }
                 }, new Response.ErrorListener() {
             @Override
