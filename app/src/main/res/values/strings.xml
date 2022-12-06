@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">TSB</string>
+    <string name="entrar">ENTRAR</string>
+    <string name="email">Email</string>
+    <string name="senha">Senha</string>
+    <string name="me_cadastrar">ME CADASTRAR</string>
+    <string name="solicitar_seguro">+ SOLICITAR SEGURO</string>
+</resources>

@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<androidx.core.widget.NestedScrollView xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+    <!--
+    androidx.core.widget.NestedScrollView
+    permite fazer o celular deitar
+     -->
+
+<androidx.constraintlayout.widget.ConstraintLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    tools:context=".Logado">
+
+    <View
+        android:id="@+id/user_nome_component"
+        style="@style/UserIconComponent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        />
+
+    <ImageView
+        android:id="@+id/user_icone"
+        style="@style/UserIcone"
+        app:layout_constraintStart_toStartOf="@id/user_nome_component"
+        app:layout_constraintTop_toTopOf="@id/user_nome_component"
+        app:layout_constraintEnd_toStartOf="@id/text_nome_user"
+        />
+
+    <TextView
+        android:id="@+id/text_nome_user"
+        style="@style/TextNomeUser"
+        android:text="Olá, Paulo!"
+        app:layout_constraintStart_toEndOf="@id/user_icone"
+        app:layout_constraintTop_toTopOf="@id/user_nome_component"
+        />
+
+    <TextView
+        android:id="@+id/text_cobertura"
+        style="@style/TextCobertura"
+        android:text="Suas coberturas"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/text_nome_user"
+        />
+
+
+    <ListView
+        android:id="@+id/lista_coberturas"
+        android:layout_width="match_parent"
+        android:layout_height="180dp"
+        android:layout_margin="18dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:background="@color/secondary"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/text_cobertura" />
+
+    <TextView
+        android:id="@+id/text_cobertura_nome"
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:text="grato"
+        android:textSize="22dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/text_cobertura"
+        android:layout_marginLeft="25dp"
+        android:layout_marginTop="18dp"
+        android:layout_marginRight="18dp"
+        android:textColor="@color/white"
+        />
+
+    <TextView
+        android:id="@+id/text_cobertura_descricao"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:text="blaa 78569 e blaaa de cinco, felicdade e cabelosss eita 24h ter por"
+        android:textSize="18dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/text_cobertura_nome"
+        android:layout_marginLeft="25dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginRight="18dp"
+        android:textColor="@color/white"
+        />
+
+    <TextView
+        android:id="@+id/text_cobertura_valor"
+        android:layout_width="match_parent"
+        android:layout_height="22dp"
+        android:text="R$ 42.42"
+        android:textSize="18dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/text_cobertura_descricao"
+        android:layout_marginLeft="25dp"
+        android:layout_marginRight="18dp"
+        android:textColor="@color/white"
+        />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/solicitar_seguro"
+        style="@style/BtnSolicitar"
+        android:layout_marginBottom="60dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:text="@string/solicitar_seguro"
+        />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.core.widget.NestedScrollView>
